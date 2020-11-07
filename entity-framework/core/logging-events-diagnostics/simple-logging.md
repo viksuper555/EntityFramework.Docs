@@ -26,7 +26,7 @@ EF Core logs can be accessed from any type of application through use of [LogTo]
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.LogTo(Console.WriteLine);
 -->
-[!code-csharp[LogToConsole](../../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=LogToConsole)]
+[!code-csharp[LogToConsole](../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=LogToConsole)]
 
 Alternately, `LogTo` can be called as part of <xref:Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext%2A> or when creating a <xref:Microsoft.EntityFrameworkCore.DbContextOptions> instance to pass to the `DbContext` constructor.
 
@@ -49,7 +49,7 @@ The <xref:System.Console.WriteLine%2A?displayProperty=nameWithType> method is of
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.LogTo(message => Debug.WriteLine(message));
 -->
-[!code-csharp[LogToDebug](../../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=LogToDebug)]
+[!code-csharp[LogToDebug](../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=LogToDebug)]
 
 ### Logging to a file
 
@@ -73,7 +73,7 @@ Writing to a file requires creating a <xref:System.IO.StreamWriter> or similar f
         await _logStream.DisposeAsync();
     }
 -->
-[!code-csharp[LogToFile](../../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=LogToFile)]
+[!code-csharp[LogToFile](../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=LogToFile)]
 
 > [!TIP]
 > Consider using [Microsoft.Extensions.Logging](/aspnet/core/fundamentals/logging) for logging to files in production applications.
@@ -92,7 +92,7 @@ However, knowing data values, especially for keys, can be very helpful when debu
             .LogTo(Console.WriteLine)
             .EnableSensitiveDataLogging();
 -->
-[!code-csharp[SensitiveDataLogging](../../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=SensitiveDataLogging)]
+[!code-csharp[SensitiveDataLogging](../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=SensitiveDataLogging)]
 
 ### Detailed query exceptions
 
@@ -106,7 +106,7 @@ Turning on <xref:Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.EnableDet
             .LogTo(Console.WriteLine)
             .EnableDetailedErrors();
 -->
-[!code-csharp[EnableDetailedErrors](../../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=EnableDetailedErrors)]
+[!code-csharp[EnableDetailedErrors](../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=EnableDetailedErrors)]
 
 ## Filtering
 
@@ -118,7 +118,7 @@ Every EF Core log message is assigned to a level defined by the <xref:Microsoft.
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);
 -->
-[!code-csharp[InfoOnly](../../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=InfoOnly)]
+[!code-csharp[InfoOnly](../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=InfoOnly)]
 
 ### Specific messages
 
@@ -131,7 +131,7 @@ Every log message is assigned an <xref:Microsoft.Extensions.Logging.EventId>. Th
         => optionsBuilder
             .LogTo(Console.WriteLine, new[] { CoreEventId.ContextDisposed, CoreEventId.ContextInitialized });
 -->
-[!code-csharp[EventIds](../../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=EventIds)]
+[!code-csharp[EventIds](../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=EventIds)]
 
 ### Message categories
 
@@ -160,7 +160,7 @@ Every log message is assigned to a named hierarchical logger category. The categ
         => optionsBuilder
             .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Name });
 -->
-[!code-csharp[DatabaseCategory](../../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=DatabaseCategory)]
+[!code-csharp[DatabaseCategory](../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=DatabaseCategory)]
 
 Notice that the <xref:Microsoft.EntityFrameworkCore.DbLoggerCategory> class provides a hierarchical API for finding a category and avoids the need to hard-code strings.
 
@@ -179,7 +179,7 @@ Since categories are hierarchical, this example using the `Database` category wi
                                        || eventId == RelationalEventId.ConnectionOpened
                                        || eventId == RelationalEventId.ConnectionClosed);
 -->
-[!code-csharp[CustomFilter](../../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=CustomFilter)]
+[!code-csharp[CustomFilter](../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=CustomFilter)]
 
 > [!TIP]
 > Filtering using custom filters or using any of the other options shown here is more efficient than filtering in the LogTo delegate. This is because if the filter determines the message should not be logged, then the log message is not even created.
@@ -224,7 +224,7 @@ By default, timestamnps are designed for local consumption while debugging. Use 
             LogLevel.Debug,
             DbContextLoggerOptions.DefaultWithUtcTime);
 -->
-[!code-csharp[Utc](../../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=Utc)]
+[!code-csharp[Utc](../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=Utc)]
 
 This example results in the following log formatting:
 
@@ -252,7 +252,7 @@ Sometimes it is useful to get exactly one line per log message. This can be enab
             LogLevel.Debug,
             DbContextLoggerOptions.DefaultWithLocalTime | DbContextLoggerOptions.SingleLine);
 -->
-[!code-csharp[SingleLine](../../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=SingleLine)]
+[!code-csharp[SingleLine](../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=SingleLine)]
 
 This example results in the following log formatting:
 
@@ -275,7 +275,7 @@ This example results in the following log formatting:
             LogLevel.Debug,
             DbContextLoggerOptions.UtcTime | DbContextLoggerOptions.SingleLine);
 -->
-[!code-csharp[TerseLogs](../../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=TerseLogs)]
+[!code-csharp[TerseLogs](../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=TerseLogs)]
 
 ```output
 2020-10-06T17:52:45.7320362Z -> Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']CREATE TABLE "Blogs" (    "Id" INTEGER NOT NULL CONSTRAINT "PK_Blogs" PRIMARY KEY AUTOINCREMENT,    "Name" INTEGER NOT NULL);
@@ -300,4 +300,4 @@ The second difference is an intentional change to improve performance by not gen
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.LogTo(s => Log?.Invoke(s));
 -->
-[!code-csharp[DatabaseLog](../../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=DatabaseLog)]
+[!code-csharp[DatabaseLog](../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=DatabaseLog)]

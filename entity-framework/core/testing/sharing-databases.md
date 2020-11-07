@@ -37,7 +37,7 @@ The [XUnit documentation](https://xunit.net/docs/shared-context.html) states tha
 This means that we need to move database creation and seeding to a fixture class.
 Here's what it looks like:
 
-[!code-csharp[SharedDatabaseFixture](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/SharedDatabaseTests/SharedDatabaseFixture.cs?name=SharedDatabaseFixture)]
+[!code-csharp[SharedDatabaseFixture](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/SharedDatabaseTests/SharedDatabaseFixture.cs?name=SharedDatabaseFixture)]
 
 For now, notice how the constructor:
 
@@ -66,7 +66,7 @@ Also, it is often useful to have the test database still available for debugging
 
 XUnit has a common pattern for associating a test fixture with a class of tests:
 
-[!code-csharp[UsingTheFixture](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/SharedDatabaseTests/SharedDatabaseTest.cs?name=UsingTheFixture)]
+[!code-csharp[UsingTheFixture](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/SharedDatabaseTests/SharedDatabaseTest.cs?name=UsingTheFixture)]
 
 XUnit will now create a single fixture instance and pass it to each instance of the test class.
 (Remember from the first [testing sample](xref:core/testing/testing-sample) that XUnit creates a new test class instance every time it runs a test.)
@@ -83,7 +83,7 @@ But these changes will then impact other tests which are expecting a clean, seed
 This can be dealt with by running mutating tests inside a transaction.
 For example:
 
-[!code-csharp[CanAddItem](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/SharedDatabaseTests/SharedDatabaseTest.cs?name=CanAddItem)]
+[!code-csharp[CanAddItem](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/SharedDatabaseTests/SharedDatabaseTest.cs?name=CanAddItem)]
 
 Notice that the transaction is created as the test starts and disposed when it is finished.
 Disposing the transaction causes it to be rolled back, so none of the changes will be seen by other tests.

@@ -36,11 +36,11 @@ The model backing this API has two entity types: Items and Tags.
 
 The `Item` entity type:
 
-[!code-csharp[ItemEntityType](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/Item.cs?name=ItemEntityType)]
+[!code-csharp[ItemEntityType](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/Item.cs?name=ItemEntityType)]
 
 And its configuration in `DbContext.OnModelCreating`:
 
-[!code-csharp[ConfigureItem](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/ItemsContext.cs?name=ConfigureItem)]
+[!code-csharp[ConfigureItem](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/ItemsContext.cs?name=ConfigureItem)]
 
 Notice that entity type constrains the way it can be used to reflect the domain model and business rules. In particular:
 
@@ -61,11 +61,11 @@ Notice that entity type constrains the way it can be used to reflect the domain 
 
 The `Tag` entity type:
 
-[!code-csharp[TagEntityType](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/Tag.cs?name=TagEntityType)]
+[!code-csharp[TagEntityType](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/Tag.cs?name=TagEntityType)]
 
 And its configuration in `DbContext.OnModelCreating`:
 
-[!code-csharp[ConfigureTag](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/ItemsContext.cs?name=ConfigureTag)]
+[!code-csharp[ConfigureTag](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/ItemsContext.cs?name=ConfigureTag)]
 
 Similarly to Item, Tag hides its primary key and makes the `Label` property read-only.
 
@@ -74,23 +74,23 @@ Similarly to Item, Tag hides its primary key and makes the `Label` property read
 The Web API controller is pretty basic.
 It gets a `DbContext` from the dependency injection container through constructor injection:
 
-[!code-csharp[Constructor](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/Controllers/ItemsController.cs?name=Constructor)]
+[!code-csharp[Constructor](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/Controllers/ItemsController.cs?name=Constructor)]
 
 It has methods to get all Items or an Item with a given name:
 
-[!code-csharp[Get](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/Controllers/ItemsController.cs?name=Get)]
+[!code-csharp[Get](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/Controllers/ItemsController.cs?name=Get)]
 
 It has a method to add a new Item:
 
-[!code-csharp[PostItem](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/Controllers/ItemsController.cs?name=PostItem)]
+[!code-csharp[PostItem](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/Controllers/ItemsController.cs?name=PostItem)]
 
 A method to tag an Item with a label:
 
-[!code-csharp[PostTag](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/Controllers/ItemsController.cs?name=PostTag)]
+[!code-csharp[PostTag](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/Controllers/ItemsController.cs?name=PostTag)]
 
 And a method to delete an Item and all associated Tags:
 
-[!code-csharp[DeleteItem](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/Controllers/ItemsController.cs?name=DeleteItem)]
+[!code-csharp[DeleteItem](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/ItemsWebApi/Controllers/ItemsController.cs?name=DeleteItem)]
 
 Most validation and error handling have been removed to reduce clutter.
 
@@ -135,12 +135,12 @@ When each test is run:
   - The Seed method ensures the database is clean by deleting it and then re-creating it
   - Some well-known test entities are created and saved to the database
 
-[!code-csharp[Seeding](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/ItemsControllerTest.cs?name=Seeding)]
+[!code-csharp[Seeding](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/ItemsControllerTest.cs?name=Seeding)]
 
 Each concrete test class then inherits from this.
 For example:
 
-[!code-csharp[SqliteItemsControllerTest](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/SqliteItemsControllerTest.cs?name=SqliteItemsControllerTest)]
+[!code-csharp[SqliteItemsControllerTest](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/SqliteItemsControllerTest.cs?name=SqliteItemsControllerTest)]
 
 ### Test structure
 
@@ -151,7 +151,7 @@ Instead, a DbContext is created using `new` and then directly passed as the depe
 Each test then executes the method under test on the controller and asserts the results are as expected.
 For example:
 
-[!code-csharp[CanGetItems](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/ItemsControllerTest.cs?name=CanGetItems)]
+[!code-csharp[CanGetItems](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/ItemsControllerTest.cs?name=CanGetItems)]
 
 Notice that different DbContext instances are used to seed the database and run the tests.
 This ensures that the test is not using (or tripping over) entities tracked by the context when seeding.
@@ -161,13 +161,13 @@ Tests that mutate the database create a second DbContext instance in the test fo
 That is, creating a new, clean, context and then reading into it from the database to ensure that the changes were saved to the database.
 For example:
 
-[!code-csharp[CanAddItem](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/ItemsControllerTest.cs?name=CanAddItem)]
+[!code-csharp[CanAddItem](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/ItemsControllerTest.cs?name=CanAddItem)]
 
 Two slightly more involved tests cover the business logic around adding tags.
 
-[!code-csharp[CanAddTag](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/ItemsControllerTest.cs?name=CanAddTag)]
+[!code-csharp[CanAddTag](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/ItemsControllerTest.cs?name=CanAddTag)]
 
-[!code-csharp[CanUpTagCount](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/ItemsControllerTest.cs?name=CanUpTagCount)]
+[!code-csharp[CanUpTagCount](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/ItemsControllerTest.cs?name=CanUpTagCount)]
 
 ## Issues using different database providers
 
@@ -180,7 +180,7 @@ The sections below cover two examples of such issues demonstrated by the tests i
 One of the requirements for our application is that "Items have a case-sensitive name and a collection of Tags."
 This is pretty simple to test:
 
-[!code-csharp[CanAddItemCaseInsensitive](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/ItemsControllerTest.cs?name=CanAddItemCaseInsensitive)]
+[!code-csharp[CanAddItemCaseInsensitive](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/ItemsControllerTest.cs?name=CanAddItemCaseInsensitive)]
 
 Running this test against the EF in-memory database indicates that everything is fine.
 Everything still looks fine when using SQLite.
@@ -209,7 +209,7 @@ However, the point here is that this bug could be missed if only testing with th
 Another of the requirements for our application is that "deleting an Item should delete all associated Tags."
 Again, easy to test:
 
-[!code-csharp[DeleteItem](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/ItemsControllerTest.cs?name=DeleteItem)]
+[!code-csharp[DeleteItem](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/ItemsControllerTest.cs?name=DeleteItem)]
 
 This test passes on SQL Server and SQLite, but fails with the EF in-memory database!
 

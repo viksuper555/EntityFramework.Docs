@@ -20,7 +20,7 @@ EF Core logs can be accessed from any type of application through use of [LogTo]
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.LogTo(Console.WriteLine);
 -->
-[!code-csharp[LogToConsole](../../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=LogToConsole)]
+[!code-csharp[LogToConsole](../../../samples/core/Miscellaneous/Logging/SimpleLogging/Program.cs?name=LogToConsole)]
 
 This concept is similar to <xref:System.Data.Entity.Database.Log?displayProperty=nameWithType> in EF6.
 

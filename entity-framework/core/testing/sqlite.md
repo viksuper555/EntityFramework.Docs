@@ -32,7 +32,7 @@ So the key to using EF Core with an in-memory SQLite database is to open the con
 
 The [sample](xref:core/testing/testing-sample) achieves this with the following code:
 
-[!code-csharp[SqliteInMemory](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/SqliteInMemoryItemsControllerTest.cs?name=SqliteInMemory)]
+[!code-csharp[SqliteInMemory](../../../samples/core/Miscellaneous/Testing/ItemsWebApi/Tests/SqliteInMemoryItemsControllerTest.cs?name=SqliteInMemory)]
 
 Notice:
 

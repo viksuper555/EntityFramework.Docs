@@ -86,7 +86,7 @@ Define a context class and entity classes that make up the model.
 
 ---
 
-[!code-csharp[Main](../../../samples/core/GetStarted/Model.cs)]
+[!code-csharp[Main](../../../../samples/core/GetStarted/Model.cs)]
 
 EF Core can also [reverse engineer](xref:core/managing-schemas/scaffolding) a model from an existing database.
 
@@ -127,7 +127,7 @@ The following steps use [migrations](xref:core/managing-schemas/migrations/index
 
 * Open *Program.cs* and replace the contents with the following code:
 
-  [!code-csharp[Main](../../../samples/core/GetStarted/Program.cs)]
+  [!code-csharp[Main](../../../../samples/core/GetStarted/Program.cs)]
 
 ## Run the app
 
