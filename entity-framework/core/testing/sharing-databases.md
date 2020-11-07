@@ -3,12 +3,12 @@ title: Sharing databases between tests - EF Core
 description: Sample showing how to share a database between multiple tests
 author: ajcvickers
 ms.date: 04/25/2020
-uid: core/miscellaneous/testing/sharing-databases
+uid: core/testing/sharing-databases
 ---
 
 # Sharing databases between tests
 
-The [EF Core testing sample](xref:core/miscellaneous/testing/testing-sample) showed how to test applications against different database systems.
+The [EF Core testing sample](xref:core/testing/testing-sample) showed how to test applications against different database systems.
 For that sample, each test created a new database.
 This is a good pattern when using SQLite or the EF in-memory database, but it can involve significant overhead when using other database systems.
 
@@ -16,7 +16,7 @@ This sample builds on the previous sample by moving database creation into a tes
 This allows a single SQL Server database to be created and seeded only once for all tests.
 
 > [!TIP]
-> Make sure to work through the [EF Core testing sample](xref:core/miscellaneous/testing/testing-sample) before continuing here.
+> Make sure to work through the [EF Core testing sample](xref:core/testing/testing-sample) before continuing here.
 
 It's not difficult to write multiple tests against the same database.
 The trick is doing it in a way that the tests don't trip over each other as they run.
@@ -69,7 +69,7 @@ XUnit has a common pattern for associating a test fixture with a class of tests:
 [!code-csharp[UsingTheFixture](../../../../samples/core/Miscellaneous/Testing/ItemsWebApi/SharedDatabaseTests/SharedDatabaseTest.cs?name=UsingTheFixture)]
 
 XUnit will now create a single fixture instance and pass it to each instance of the test class.
-(Remember from the first [testing sample](xref:core/miscellaneous/testing/testing-sample) that XUnit creates a new test class instance every time it runs a test.)
+(Remember from the first [testing sample](xref:core/testing/testing-sample) that XUnit creates a new test class instance every time it runs a test.)
 This means that the database will be created and seeded once and then each test will use this database.
 
 Note that tests within a single class will not be run in parallel.

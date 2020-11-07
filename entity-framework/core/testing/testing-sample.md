@@ -3,7 +3,7 @@ title: EF Core testing sample - EF Core
 description: Sample showing how to test applications which use Entity Framework Core
 author: ajcvickers
 ms.date: 04/22/2020
-uid: core/miscellaneous/testing/testing-sample
+uid: core/testing/testing-sample
 no-loc: [Item, Tag, Items, Tags, items, tags]
 ---
 
@@ -107,7 +107,7 @@ This is achieved by putting all the tests in a base class, then inheriting from 
 
 > [!TIP]
 > You will need to change the SQL Server connection string if you're not using LocalDB.
-> See [Testing with SQLite](xref:core/miscellaneous/testing/sqlite) for guidance on using SQLite for in-memory testing.
+> See [Testing with SQLite](xref:core/testing/sqlite) for guidance on using SQLite for in-memory testing.
 
 The following two tests are expected to fail:
 
@@ -125,7 +125,7 @@ This means that we can setup and configure the database in the test constructor 
 > [!TIP]
 > This sample recreates the database for each test.
 > This works well for SQLite and EF in-memory database testing but can involve significant overhead with other database systems, including SQL Server.
-> Approaches for reducing this overhead are covered in [Sharing databases across tests](xref:core/miscellaneous/testing/sharing-databases).
+> Approaches for reducing this overhead are covered in [Sharing databases across tests](xref:core/testing/sharing-databases).
 
 When each test is run:
 
@@ -172,7 +172,7 @@ Two slightly more involved tests cover the business logic around adding tags.
 ## Issues using different database providers
 
 Testing with a different database system than is used in the production application can lead to problems.
-These are covered at the conceptual level in [Testing code that uses EF Core](xref:core/miscellaneous/testing/index).
+These are covered at the conceptual level in [Testing code that uses EF Core](xref:core/testing/index).
 The sections below cover two examples of such issues demonstrated by the tests in this sample.
 
 ### Test passes when the application is broken

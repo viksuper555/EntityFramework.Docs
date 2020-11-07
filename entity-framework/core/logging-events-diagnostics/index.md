@@ -3,7 +3,7 @@ title: Overview of logging and interception - EF Core
 description: Overview of logging, events, interceptors, and diagnostics for EF Core  
 author: ajcvickers
 ms.date: 10/01/2020
-uid: core/miscellaneous/events/index
+uid: core/logging-events-diagnostics/index
 ---
 # Overview of logging and interception
 
@@ -24,4 +24,4 @@ EF Core logs can be accessed from any type of application through use of [LogTo]
 
 This concept is similar to <xref:System.Data.Entity.Database.Log?displayProperty=nameWithType> in EF6.
 
-See [Simple Logging](xref:core/miscellaneous/events/simple-logging) for more information.
+See [Simple Logging](xref:core/logging-events-diagnostics/simple-logging) for more information.

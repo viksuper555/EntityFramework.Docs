@@ -3,7 +3,7 @@ title: Design-time services - EF Core
 description: Information on Entity Framework Core design-time services
 author: bricelam
 ms.date: 10/22/2020
-uid: core/miscellaneous/cli/services
+uid: core/cli/services
 ---
 # Design-time services
 

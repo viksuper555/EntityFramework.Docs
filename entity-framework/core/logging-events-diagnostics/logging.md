@@ -3,7 +3,7 @@ title: Logging - EF Core
 description: Configuring logging with Entity Framework Core
 author: ajcvickers
 ms.date: 10/06/2020
-uid: core/miscellaneous/logging
+uid: core/logging-events-diagnostics/logging
 ---
 # Logging
 
@@ -25,7 +25,7 @@ Entity Framework Core (EF Core) generates log messages for operations such as ex
 
 This concept is similar to <xref:System.Data.Entity.Database.Log?displayProperty=nameWithType> in EF6.
 
-See [Simple Logging](xref:core/miscellaneous/events/simple-logging) for more information.
+See [Simple Logging](xref:core/logging-events-diagnostics/simple-logging) for more information.
 
 ## ASP.NET Core applications
 

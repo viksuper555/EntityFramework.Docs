@@ -157,37 +157,37 @@
         },
         {
             "source_path": "entity-framework/core/get-started/full-dotnet/existing-db.md",
-            "redirect_url": "/ef/core/get-started/index",
+            "redirect_url": "/ef/core/get-started/overview/first-app",
             "redirect_document_id": false
         },
         {
             "source_path": "entity-framework/core/get-started/full-dotnet/index.md",
-            "redirect_url": "/ef/core/get-started/index",
+            "redirect_url": "/ef/core/get-started/overview/first-app",
             "redirect_document_id": false
         },
         {
             "source_path": "entity-framework/core/get-started/full-dotnet/new-db.md",
-            "redirect_url": "/ef/core/get-started/index",
+            "redirect_url": "/ef/core/get-started/overview/first-app",
             "redirect_document_id": false
         },
         {
             "source_path": "entity-framework/core/get-started/netcore/index.md",
-            "redirect_url": "/ef/core/get-started/index",
+            "redirect_url": "/ef/core/get-started/overview/first-app",
             "redirect_document_id": false
         },
         {
             "source_path": "entity-framework/core/get-started/netcore/new-db-sqlite.md",
-            "redirect_url": "/ef/core/get-started/index",
+            "redirect_url": "/ef/core/get-started/overview/first-app",
             "redirect_document_id": false
         },
         {
             "source_path": "entity-framework/core/get-started/uwp/getting-started.md",
-            "redirect_url": "/ef/core/get-started/index",
+            "redirect_url": "/ef/core/get-started/overview/first-app",
             "redirect_document_id": false
         },
         {
             "source_path": "entity-framework/core/get-started/uwp/index.md",
-            "redirect_url": "/ef/core/get-started/index",
+            "redirect_url": "/ef/core/get-started/overview/first-app",
             "redirect_document_id": false
         },
         {
